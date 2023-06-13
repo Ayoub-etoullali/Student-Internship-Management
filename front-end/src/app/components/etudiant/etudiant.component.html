@@ -1,0 +1,209 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-auto bg-light sticky-top">
+      <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+        <img src="../assets/img/favicon-32x32.png" alt="" srcset="">
+      </div>
+    </div>
+    <div class="col-sm p-3 min-vh-100">
+      <!--add-student content -->
+      <section style="background-color: white;" class="rounded-7">
+        <i class="bi bi-arrow-left my-3 p-3" style="font-size: 2.5rem;" routerLink="/studentList"></i>
+        <div class="container py-1">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img
+                    src="https://media.licdn.com/dms/image/C4D03AQGSQRtzVOrTzg/profile-displayphoto-shrink_800_800/0/1642903671620?e=2147483647&v=beta&t=nplM3EwMTHrIMy1nmjNhSHWMkwuve-6lK5xuwWlp55c"
+                    alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3"></h5>
+                  <p class="text-muted mb-1 badge badge-warning"></p>
+                </div>
+              </div>
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <p class="mb-0">Prenom</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.prenom}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Nom</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.nom}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Adresse</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.adresse}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Telephone</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.telephone}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.email}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Filière</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.filiere}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">CIN</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.cin}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">CNE</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{etudiant.cne}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Edit -->
+              <div class="container">
+
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h1>Bienvenue dans votre espace étudiant</h1>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>Gérer votre profil et vos informations personnelles :</h3>
+                    <p>Vous pouvez mettre à jour vos informations personnelles, telles que votre nom, prénom, adresse,
+                      etc.</p>
+                    <button (click)="Edit()" class="btn btn-primary align-content-center">
+                      <i class="bi bi-pencil"> Editer</i>
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <h3>Consulter les offres de stages :</h3>
+                    <p>Parcourez les différentes offres de stages disponibles. Vous y trouverez des informations sur les
+                      titres des stages, les compétences requises, la durée, etc.</p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h3>Déposer un projet, commenter et télécharger les fichiers correspondants :</h3>
+                    <p>Vous avez la possibilité de déposer un projet, d'ajouter des commentaires et de télécharger les
+                      fichiers liés à votre projet.</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="row">
+                    <img
+                      src="../../../assets/image-removebg-preview.png"
+                      class="img-fluid" alt="Sample image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Espace Étudiant</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+body {
+background-color: #f8f9fa;
+}
+.container {
+background-color: #fff;
+padding: 30px;
+margin-top: 50px;
+border-radius: 5px;
+box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="row">
+<div class="col-md-12 text-center">
+<h1>Bienvenue dans votre espace étudiant</h1>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+<div class="col-md-6">
+<h3>Gérer votre profil et vos informations personnelles :</h3>
+<p>Vous pouvez mettre à jour vos informations personnelles, telles que votre nom, prénom, adresse, etc.</p>
+-- Edit -
+  <button (click)="Edit()" class="btn btn-primary align-content-center">
+    <i class="bi bi-pencil"> Editer</i>
+  </button>
+</div>
+<div class="col-md-6">
+<h3>Consulter les offres de stages :</h3>
+<p>Parcourez les différentes offres de stages disponibles. Vous y trouverez des informations sur les titres des stages, les compétences requises, la durée, etc.</p>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12 text-center">
+<h3>Déposer un projet, commenter et télécharger les fichiers correspondants :</h3>
+<p>Vous avez la possibilité de déposer un projet, d'ajouter des commentaires et de télécharger les fichiers liés à votre projet.</p>
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>
+-->

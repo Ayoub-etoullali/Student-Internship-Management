@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connexion</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .background-radial-gradient {
+      background: radial-gradient(circle, rgb(217, 228, 232), rgb(0, 0, 0));
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      box-shadow: 0px 0px 20px rgba(79, 26, 26, 0.1);
+    }
+
+    .card-body {
+      padding: 40px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .link-info {
+      color: #17a2b8;
+    }
+  </style>
+</head>
+<body>
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0 text-center" style="z-index: 10">
+        <!-- svg -->
+        <img src="./assets/zyro-image-removebg-preview.png" width="70%" height="70%">
+        <h1 class="my-5 mdisplay-5 fw-bold ls-tight" style="color: #080163">
+          Bienvenue sur notre plateforme de gestion des stages et des projets
+        </h1>
+        <p class="mb-4 opacity-70" style="color: rgb(0,38,56)">
+          La plateforme de gestion des stages et des projets est un outil web destiné aux étudiants et aux entreprises
+          pour faciliter la gestion des stages et des projets. Vous pouvez consulter les offres de stages, déposer un
+          projet, et gérer votre profil facilement.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <div class="text-center">
+              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+            </div>
+            <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+              <div class="mb-3">
+                <label class="form-label">Nom d'utilisateur</label>
+                <input type="text" formControlName="username" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Mot de passe</label>
+                <input type="password" formControlName="password" class="form-control">
+              </div>
+              <button class="btn btn-primary" type="submit">Se connecter</button>
+              <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+              <br>
+              <hr>
+              <!-- Checkbox -->
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked/>
+              <label class="form-check-label" for="form2Example33">
+                S'abonner à notre newsletter
+              </label>
+              <br><br>
+              <p>Vous n'avez pas de compte ? <a routerLink="/register" class="link-info my-3">Inscrivez-vous ici</a></p>
+              <p>Mot de passe oublié ? <a routerLink="/forgotPassword" class="link-info my-3">Récupérez-le ici</a></p>
+              <div class="text-center">
+                <p>Ou connectez-vous avec :</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google" (click)="OnSignInWithGoogle()"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

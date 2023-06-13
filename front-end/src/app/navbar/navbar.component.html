@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="m-2">
+    <img src="../../assets/zyro.png" width="5%" height="5%"  routerLink="/navbar/acceuil">
+    <img src="../../assets/2.png" width="22%" height="22%"  routerLink="/navbar/acceuil">
+    </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/navbar/acceuil">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/navbar/offres-stage">Offres de stage</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Projets
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/navbar/projets">Search Projets</a></li>
+            <li><a class="dropdown-item" routerLink="/navbar/new-projet">New Projets</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/navbar/forum">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/navbar/etudiant">Espace Etudiant</a>
+        </li>
+        <!-- logout -->
+        <li>
+          <a class="btn nav-link" (click)="handleLogout()">
+            <i class="bi bi-box-arrow-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

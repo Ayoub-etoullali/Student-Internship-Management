@@ -1,0 +1,247 @@
+<script src="../../model/OffreStage.model.ts"></script>
+<div class="container mt-2">
+  <!-- [M1] Error -->
+  <ng-container *ngIf="offresStageObservable | async as listOffresStage; else failureOrLoading">
+
+    <!-- [M2] Error
+      <div class="text-danger" *ngIf="errorMsg">
+        Error Message = {{errorMsg | json}}
+      </div>
+    -->
+
+    <div class="card">
+      <div class="card-header">
+        <h1 class="display-4">Offres de stage</h1>
+      </div>
+      <div class="card-body">
+
+        <!-- Search -->
+        <div class="input-group">
+          <div class="ms-2"></div>
+
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchOffresStageByPoste()">
+            <div class="input-group">
+              <label class="input-group-text">Poste</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
+              <button class="btn btn-outline-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="m-2 ms-5"></div>
+          <div class="ms-5"></div>
+
+          <form [formGroup]="searchFormGroup">
+            <div class="input-group">
+              <label class="input-group-text">Entreprise</label>
+              <input type="text" formControlName="keywords" class="form-control">
+              <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
+              <button class="btn btn-outline-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="m-2"></div>
+
+        <div class="input-group">
+          <form [formGroup]="searchFormGroup">
+            <div class="input-group">
+              <label class="input-group-text">technologie</label>
+              <input type="text" formControlName="keywords" class="form-control">
+              <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
+              <button class="btn btn-outline-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="ms-5"></div>
+          <div class="ms-5"></div>
+          <div class="ms-5"></div>
+          <div class="ms-5"></div>
+
+          <button (click)="Reset()" class="btn btn-outline-warning">
+            Réinitialiser
+          </button>
+        </div>
+
+          <!-- Offres de stage -->
+          <table class="table mt-4">
+            <thead style="background-color:#5a7785;">
+            <tr style="color:#ffffff;">
+              <th>ID</th>
+              <th>Poste</th>
+              <th>Entreprise</th>
+              <th>Description</th>
+              <th>Technologie</th>
+            </tr>
+            </thead>
+            <tbody class="tableb">
+            <tr *ngFor="let o of offresStageObservable | async"> <!-- async : [M2] subscribe-->
+              <td> {{o.id}}</td>
+              <td> {{o.poste}}</td>
+              <td> {{o.entreprise}} </td>
+              <td> {{o.description}} </td>
+              <td> {{o.technologie}} </td>
+              <td>
+
+                <!-- Details -->
+              <td>
+                <button (click)="Details(o)" class="btn btn-info">
+                  <i class="bi bi-list-task"> Details</i>
+                </button>
+              </td>
+              <!-- Postuler -->
+              <td (click)="handleSetPostuler(o)">
+                <i *ngIf="o.postuler==true" class="bi bi-clipboard-plus-fill btn btn-outline-success"></i>
+                <i *ngIf="o.postuler==false" class="bi bi-clipboard btn btn-outline-warning"></i>
+              </td>
+              <!--<td>
+                <i *ngIf="o.postuler==true" class="bi bi-bag-check-fill"></i>
+                <i *ngIf="o.postuler==true" class="bi bi-bag"></i>
+              </td>
+               <td>
+                <button (click)="handleSetPostuler(o)" [ngClass]="o.postuler==true?'btn-danger':'btn-success'"
+                        class="btn">
+                  <span *ngIf="o.postuler==true">Postuler</span>
+                  <span *ngIf="o.postuler==false">non Postuler</span>
+                </button>
+              </td>-->
+              <!--<td>
+                <button (click)="Postuler(o)" class="btn btn-success">
+                  <i class="bi bi-check-square-fill">  Postuler</i>
+                </button>
+              </td>-->
+            </tr>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+
+        </div>
+      </div>
+  </ng-container>
+
+  <!-- [M1] Error -->
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMsg; else loading">
+      <div class="text-danger">
+        Error Message = {{errorMsg | json}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="text-xl-start">
+        Loading ...
+      </div>
+    </ng-template>
+  </ng-template>
+</div>
+
+<!-- for Pagination -->
+<!--
+<script src="../../model/OffreStage.model.ts"></script>
+<div class="container mt-2">
+  &lt;!&ndash; [M1] Error &ndash;&gt;
+  <ng-container *ngIf="offresStageObservable | async as listOffresStage; else failureOrLoading">
+
+    &lt;!&ndash; [M2] Error
+      <div class="text-danger" *ngIf="errorMsg">
+        Error Message = {{errorMsg | json}}
+      </div>
+    &ndash;&gt;
+    <div class="card">
+      <div class="card-header">Offres de stage</div>
+      <div class="card-body">
+
+        &lt;!&ndash; Search &ndash;&gt;
+        <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchOffresStageByPoste()">
+          <div class="input-group">
+            <label class="input-group-text">Keyword</label>
+            <input type="text" formControlName="keyword" class="form-control">
+            &lt;!&ndash; Stocker dans le variable keyword de l'objet searchFormGroup &ndash;&gt;
+            <button class="btn btn-info">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          {{offreStageObservable | json}}
+        </form>
+        <ng-template #errorTemplate>
+          <ng-container *ngIf="errorMsg ; else loading">
+            <div class="text-danger mt-3">{{errorMsg}}</div>
+          </ng-container>
+          <ng-template #loading>
+            {{offreStageObservable | json}}
+            <div class="text-warning mt-3"><strong>Loading ...</strong></div>
+          </ng-template>
+        </ng-template>
+
+
+        <ng-container *ngIf="offreStageObservable | async as accountDetails; else errorTemplate ">
+          <div class="mt-3 mb-2">
+            <label>Account ID :</label>
+            <label><strong>{{accountDetails.id}}</strong></label>
+          </div>
+          <table class="table">
+            <thead>
+            <th>ID</th>
+            <th>Poste</th>
+            <th>Entreprise</th>
+            <th>Description</th>
+            <th>Technologie</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let op of accountDetails.offreStageDTOS">
+              <td> {{op.id}}</td>
+              <td> {{op.poste}}</td>
+              <td> {{op.entreprise}} </td>
+              <td> {{op.description}} </td>
+              <td> {{op.technologie}} </td>
+
+              &lt;!&ndash; Details &ndash;&gt;
+              <td>
+                <button (click)="Details(op)" class="btn btn-info">
+                  <i class="bi bi-list-task"> Details</i>
+                </button>
+              </td>
+              &lt;!&ndash; Postuler &ndash;&gt;
+              <td>
+                <button (click)="Postuler(op)" class="btn btn-success">
+                  <i class="bi bi-check-square-fill"> Postuler</i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          &lt;!&ndash; Pagination &ndash;&gt;
+          <ul class="nav nav-pills">
+            <li *ngFor="let item of [].constructor(accountDetails.totalPage);let page=index">
+              <a [ngClass]="page==currentPage?'btn-info':'btn-outline-info'" (click)="gotoPage(page)"
+                 class="btn  ms-1 mt-1">{{page}}</a>
+            </li>
+          </ul>
+        </ng-container>
+
+
+      </div>
+    </div>
+  </ng-container>
+
+  &lt;!&ndash; [M1] Error &ndash;&gt;
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMsg; else loading">
+      <div class="text-danger">
+        Error Message = {{errorMsg | json}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="text-xl-start">
+        Loading ...
+      </div>
+    </ng-template>
+  </ng-template>
+</div>
+-->
